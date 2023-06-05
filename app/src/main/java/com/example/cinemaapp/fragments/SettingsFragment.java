@@ -1,4 +1,4 @@
-package com.example.cinemaapp;
+package com.example.cinemaapp.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.cinemaapp.DataBase.DataBaseManager;
+import com.example.cinemaapp.MainActivity;
+import com.example.cinemaapp.R;
 
 public class SettingsFragment extends Fragment {
     public Button buttonDB;

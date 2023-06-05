@@ -1,4 +1,4 @@
-package com.example.cinemaapp;
+package com.example.cinemaapp.fragments;
 
 import android.os.Bundle;
 
@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.example.cinemaapp.R;
 
 
 public class AboutFragment extends Fragment {
