@@ -72,7 +72,7 @@
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="224dp"
+        android:layout_width="250dp"
         android:layout_height="48dp"
         android:text="Регистрация"
         android:onClick="onClickToRegister"

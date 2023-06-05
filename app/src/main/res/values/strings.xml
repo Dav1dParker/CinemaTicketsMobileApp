@@ -2,4 +2,6 @@
     <string name="app_name">Кинотеатр</string>
     <string name="open_nav">Open Navigation Drawer</string>
     <string name="close_nav">Close Navigation Drawer</string>
+    <string name="version">Версия приложения: 0.02</string>
+    <string name="gitLink"><a href="https://github.com/Dav1dParker">https://github.com/Dav1dParker</a></string>
 </resources>

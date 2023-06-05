@@ -53,7 +53,7 @@ public class DataBaseManager {
         while (cursor.moveToNext()){
             if (cursor.getString(cursor.getColumnIndexOrThrow(DataBase.LOGIN)).equals(tLogin) &&
                     cursor.getString(cursor.getColumnIndexOrThrow(DataBase.PASSWORD)).equals(tPassword)) {
-                Toast.makeText(context, "I worked", Toast.LENGTH_LONG).show();
+                //Toast.makeText(context, "I worked", Toast.LENGTH_LONG).show();
                 flag = true;
                 break;
             }
@@ -65,5 +65,9 @@ public class DataBaseManager {
     public void closeDB(){
         myDbHelper.close();
 
+    }
+    public void killDB(){
+        myDbHelper.close();
+        context.deleteDatabase(DataBase.DB_NAME);
     }
 }

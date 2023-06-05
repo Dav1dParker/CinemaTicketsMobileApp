@@ -13,4 +13,5 @@
     <color name="DarkText">#404040</color>
     <color name="TextGrey">#B0B0B0</color>
     <color name="red">#FF4040</color>
+    <color name="linkBlue">#4040FF</color>
 </resources>

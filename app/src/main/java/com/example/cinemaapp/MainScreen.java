@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import android.os.Bundle;
@@ -59,11 +60,13 @@ public class MainScreen extends AppCompatActivity implements NavigationView.OnNa
                 break;
 
             case R.id.nav_logout:
-                Toast.makeText(this, "Logout!", Toast.LENGTH_SHORT).show();
+                Intent intent1 = new Intent(this, MainActivity.class);
+                startActivity(intent1);
                 break;
 
             case R.id.nav_exit:
-                Toast.makeText(this, "Exit!", Toast.LENGTH_SHORT).show();
+                finish();
+                moveTaskToBack(true);
                 break;
         }
 

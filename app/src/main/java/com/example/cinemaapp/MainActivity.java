@@ -29,6 +29,16 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume(){
         super.onResume();
+        username.getText().clear();
+        password.getText().clear();
+        DataBaseManager.openDB();
+    }
+
+    @Override
+    protected void onRestart(){
+        super.onRestart();
+        username.getText().clear();
+        password.getText().clear();
         DataBaseManager.openDB();
     }
 
@@ -55,6 +65,12 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        DataBaseManager.closeDB();
+    }
     @Override
     protected void onDestroy() {
         super.onDestroy();
