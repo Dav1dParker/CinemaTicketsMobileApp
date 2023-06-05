@@ -46,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
         {
             if (DataBaseManager.checkAccount(username.getText().toString(),password.getText().toString()))
             {
-                Toast.makeText(MainActivity.this, "123", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(this, MainScreen.class);
                 startActivity(intent);
             }
