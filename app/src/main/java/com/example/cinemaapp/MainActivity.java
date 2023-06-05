@@ -9,9 +9,12 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.cinemaapp.DataBase.DataBaseManager;
+
 public class MainActivity extends AppCompatActivity {
 
     EditText username, password;
+    private DataBaseManager DataBaseManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +23,13 @@ public class MainActivity extends AppCompatActivity {
 
         username = findViewById(R.id.Login);
         password = findViewById(R.id.Password);
+        DataBaseManager = new DataBaseManager(this);
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        DataBaseManager.openDB();
     }
 
     public void onClickToRegister(View view) {
@@ -28,11 +38,27 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickToMainScreen(View view) {
-        Intent intent = new Intent(this, MainScreen.class);
         if (TextUtils.isEmpty(username.getText().toString())) {
             Toast.makeText(MainActivity.this, "Заполните поле 'Логин'", Toast.LENGTH_LONG).show();
         } else if (TextUtils.isEmpty(password.getText().toString())) {
             Toast.makeText(MainActivity.this, "Заполните поле 'Пароль'", Toast.LENGTH_LONG).show();
-        } else startActivity(intent);
+        } else
+        {
+            if (DataBaseManager.checkAccount(username.getText().toString(),password.getText().toString()))
+            {
+                Toast.makeText(MainActivity.this, "123", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(this, MainScreen.class);
+                startActivity(intent);
+            }
+            else {
+                Toast.makeText(MainActivity.this, "Неверный логин или пароль", Toast.LENGTH_LONG).show();
+            }
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        DataBaseManager.closeDB();
     }
 }
