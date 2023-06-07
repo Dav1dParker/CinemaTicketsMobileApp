@@ -26,7 +26,6 @@ public class FilmScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Bundle arguments = getIntent().getExtras();
         id = Integer.parseInt(arguments.get("id").toString());
-        System.out.println(2 + id);
         setContentView(R.layout.activity_film_screen);
         DataBaseManager = new MyDatabase(this);
         DataBaseManager.OpenDBfilms();

@@ -22,4 +22,6 @@ public class PosterHandler {
         imageList.add(R.drawable.poster11);
         return imageList;
     }
+
+    public static String UserName = null;
 }

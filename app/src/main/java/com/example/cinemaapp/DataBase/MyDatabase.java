@@ -60,6 +60,37 @@ public class MyDatabase extends SQLiteAssetHelper {
         db.close();
     }
 
+    public void OpenDBTickets() {
+        db = getReadableDatabase();
+        qb = new SQLiteQueryBuilder();
+
+        sqlSelect = new String[]{"_id", "FilmID", "Username", "Date", "Time", "NumberOfTickets", "Summ"};
+        sqlTables = "Tickets";
+        qb.setTables(sqlTables);
+    }
+
+    public void CloseDBTickets() {
+        db.close();
+    }
+
+    /*
+    public List<String> getTicketInfo(int id) {
+        List<String> tempList = new ArrayList<>();
+        Cursor cursor = qb.query(db, sqlSelect, null, null,
+                null, null, null);
+        while (cursor.moveToNext()) {
+            if (id == cursor.getInt(cursor.getColumnIndexOrThrow("ID"))) {
+                tempList.add(cursor.getString(cursor.getColumnIndexOrThrow("Name")));
+                tempList.add(cursor.getString(cursor.getColumnIndexOrThrow("Description")));
+                tempList.add(cursor.getString(cursor.getColumnIndexOrThrow("Age")));
+                tempList.add(cursor.getString(cursor.getColumnIndexOrThrow("Image")));
+            }
+        }
+        cursor.close();
+        return tempList;
+    }
+     */
+
 
     public Cursor films() {
         SQLiteDatabase db = getReadableDatabase();
@@ -108,6 +139,19 @@ public class MyDatabase extends SQLiteAssetHelper {
         cv.put("passwords", password);
         db.insert("CinemaUsers", null, cv);
     }
+
+    public void insertTicket(int filmid, String username, String date, String time, int numberoftickets, int summ)
+    {
+        ContentValues cv = new ContentValues();
+        cv.put("FilmID", filmid);
+        cv.put("Username", username);
+        cv.put("Date", date);
+        cv.put("Time", time);
+        cv.put("NumberOfTickets", numberoftickets);
+        cv.put("Summ", summ);
+        db.insert("Tickets", null, cv);
+    }
+
 
     public List<String> getFilmInfo(int id) {
         List<String> tempList = new ArrayList<>();

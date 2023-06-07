@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.example.cinemaapp.DataBase.MyDatabase;
 import com.example.cinemaapp.MainActivity;
 import com.example.cinemaapp.R;
+import com.example.cinemaapp.movies.PosterHandler;
 
 public class SettingsFragment extends Fragment {
     public Button buttonDB;
@@ -44,8 +45,7 @@ public class SettingsFragment extends Fragment {
         testButton.setOnClickListener(view1 -> {
             Toast.makeText(getContext(), "Тест запущен",
                     Toast.LENGTH_SHORT).show();
-            DataBaseManager.OpenDBfilms();
-            System.out.println(DataBaseManager.getFilmInfo(2));
+            System.out.println(PosterHandler.UserName);
         });
 
         return view;

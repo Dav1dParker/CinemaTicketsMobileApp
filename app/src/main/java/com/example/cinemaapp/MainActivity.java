@@ -10,6 +10,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.cinemaapp.DataBase.MyDatabase;
+import com.example.cinemaapp.movies.PosterHandler;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -58,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
             if (myDatabase.checkAccount(username.getText().toString(),password.getText().toString()))
             {
+                PosterHandler.UserName = username.getText().toString();
                 Intent intent = new Intent(this, MainScreen.class);
                 startActivity(intent);
             }
