@@ -3,6 +3,7 @@ plugins {
 }
 
 android {
+
     namespace 'com.example.cinemaapp'
     compileSdk 33
 

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/mainBackground"
+    android:id="@+id/buyWiget"
+    tools:context=".FilmScreen">
+
+    <View
+        android:id="@+id/titleBack"
+        android:layout_width="429dp"
+        android:layout_height="70dp"
+        android:background="@color/secondaryBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+    <ScrollView
+        android:id="@+id/buyScroll"
+        android:layout_width="413dp"
+        android:layout_height="538dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buyTitle">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+
+
+            >
+
+            <ImageView
+                android:id="@+id/buyPoster"
+                android:layout_gravity="center"
+                android:layout_width="400dp"
+                android:layout_height="500dp"
+                app:srcCompat="@drawable/poster10"
+                />
+
+            <TextView
+                android:id="@+id/buyAge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="30sp"
+                android:layout_marginRight="10dp"
+                android:layout_gravity="end"
+                android:textColor="@color/black"
+                android:text="12+" />
+
+            <TextView
+                android:id="@+id/buyDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20sp"
+                android:layout_marginRight="20sp"
+                android:layout_marginTop="30sp"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:typeface="monospace"
+                android:justificationMode="inter_word"
+                android:background="@drawable/rounded_corner"
+                android:textStyle="bold"
+                android:text="empty" />
+
+            <Button
+                android:id="@+id/buyButton"
+                android:layout_width="224dp"
+                android:layout_height="67dp"
+                android:backgroundTint="@color/secondaryBackground"
+                android:onClick="buyTicket"
+                android:text="КУПИТЬ"
+                android:layout_gravity="center"
+                android:textColor="@color/black" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/buyTitle"
+        android:layout_width="400dp"
+        android:layout_height="56dp"
+        android:text="Первому игроку приготовиться"
+        android:textAlignment="center"
+        android:textColor="@color/DarkText"
+        android:textSize="23sp"
+        android:textStyle="bold"
+        android:layout_marginTop="12dp"
+        app:layout_constraintBottom_toBottomOf="@+id/titleBack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/titleBack" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

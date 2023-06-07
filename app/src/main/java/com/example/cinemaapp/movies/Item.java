@@ -3,13 +3,15 @@ package com.example.cinemaapp.movies;
 public class Item {
 
     String name;
-    String email;
+    String age;
     int image;
+    int id;
 
-    public Item(String name, String email, int image) {
+    public Item(String name, String age, int image, int id) {
         this.name = name;
-        this.email = email;
+        this.age = age;
         this.image = image;
+        this.id = id;
     }
 
     public String getName() {
@@ -20,12 +22,12 @@ public class Item {
         this.name = name;
     }
 
-    public String getEmail() {
-        return email;
+    public String getAge() {
+        return age;
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        this.age = email;
     }
 
     public int getImage() {
@@ -34,5 +36,13 @@ public class Item {
 
     public void setImage(int image) {
         this.image = image;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

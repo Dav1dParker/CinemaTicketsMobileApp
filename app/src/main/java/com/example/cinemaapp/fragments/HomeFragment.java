@@ -2,6 +2,7 @@ package com.example.cinemaapp.fragments;
 
 import android.annotation.SuppressLint;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 
@@ -12,20 +13,33 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 
 import com.example.cinemaapp.DataBase.MyDatabase;
 
+import com.example.cinemaapp.FilmScreen;
+import com.example.cinemaapp.MainActivity;
 import com.example.cinemaapp.R;
 import com.example.cinemaapp.movies.Item;
 import com.example.cinemaapp.movies.MyAdapter;
+import com.example.cinemaapp.movies.MyViewHolder;
+import com.example.cinemaapp.movies.PosterHandler;
+import com.example.cinemaapp.movies.SelectListener;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class HomeFragment extends Fragment {
+
+
+
+
+
+public class HomeFragment extends Fragment implements SelectListener {
     private com.example.cinemaapp.DataBase.MyDatabase DataBaseManager;
+
+
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -36,22 +50,8 @@ public class HomeFragment extends Fragment {
         RecyclerView recyclerView = view.findViewById(R.id.recyclerview);
         List<Item> items = new ArrayList<Item>();
         DataBaseManager.OpenDBfilms();
-        List<Integer> imageList = new ArrayList<>();
-        imageList.add(R.drawable.poster1);
-        imageList.add(R.drawable.poster2);
-        imageList.add(R.drawable.poster3);
-        imageList.add(R.drawable.poster4);
-        imageList.add(R.drawable.poster5);
-        imageList.add(R.drawable.poster6);
-        imageList.add(R.drawable.poster7);
-        imageList.add(R.drawable.poster8);
-        imageList.add(R.drawable.poster9);
-        imageList.add(R.drawable.poster10);
-        imageList.add(R.drawable.poster11);
-
-
-
-
+        PosterHandler posterHandler = new PosterHandler();
+        List<Integer> imageList = posterHandler.getPosters();
 
 
 
@@ -64,15 +64,22 @@ public class HomeFragment extends Fragment {
         for (int i = 1; i <= len; i++)
         {
             tempList = DataBaseManager.getFilmInfo(i);
-            tempImage = Integer.parseInt(tempList.get(3));
             tempName = tempList.get(0);
-            tempDescription = tempList.get(1);
+            //tempDescription = tempList.get(1);
             tempAge = tempList.get(2);
-            items.add(new Item(tempName, tempAge + "+", imageList.get(tempImage-1)));
+            tempImage = Integer.parseInt(tempList.get(3));
+            items.add(new Item(tempName, tempAge + "+", imageList.get(tempImage-1), i));
         }
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setAdapter(new MyAdapter(getContext(), items));
+        recyclerView.setAdapter(new MyAdapter(getContext(), items, this));
         DataBaseManager.close();
         return view;
+    }
+
+    @Override
+    public void onItemClicked(Item myModel) {
+        Intent intent = new Intent(getContext(), FilmScreen.class);
+        intent.putExtra("id", myModel.getId());
+        startActivity(intent);
     }
 }
