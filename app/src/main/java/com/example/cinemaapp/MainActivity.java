@@ -9,12 +9,13 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.cinemaapp.DataBase.DataBaseManager;
+import com.example.cinemaapp.DataBase.MyDatabase;
+
 
 public class MainActivity extends AppCompatActivity {
 
     EditText username, password;
-    private DataBaseManager DataBaseManager;
+    private MyDatabase myDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
         username = findViewById(R.id.Login);
         password = findViewById(R.id.Password);
-        DataBaseManager = new DataBaseManager(this);
+        myDatabase = new MyDatabase(this);
     }
 
     @Override
@@ -31,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         username.getText().clear();
         password.getText().clear();
-        DataBaseManager.openDB();
+        myDatabase.OpenDBUsers();
     }
 
     @Override
@@ -39,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         super.onRestart();
         username.getText().clear();
         password.getText().clear();
-        DataBaseManager.openDB();
+        myDatabase.OpenDBUsers();
     }
 
     public void onClickToRegister(View view) {
@@ -54,7 +55,8 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this, "Заполните поле 'Пароль'", Toast.LENGTH_LONG).show();
         } else
         {
-            if (DataBaseManager.checkAccount(username.getText().toString(),password.getText().toString()))
+
+            if (myDatabase.checkAccount(username.getText().toString(),password.getText().toString()))
             {
                 Intent intent = new Intent(this, MainScreen.class);
                 startActivity(intent);
@@ -62,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
             else {
                 Toast.makeText(MainActivity.this, "Неверный логин или пароль", Toast.LENGTH_LONG).show();
             }
+
         }
     }
 
@@ -69,11 +72,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        DataBaseManager.closeDB();
+        myDatabase.CloseDBUsers();
     }
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        DataBaseManager.closeDB();
+        myDatabase.CloseDBUsers();
     }
 }
