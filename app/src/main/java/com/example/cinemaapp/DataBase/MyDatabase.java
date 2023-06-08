@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteQueryBuilder;
 
 import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -73,23 +74,25 @@ public class MyDatabase extends SQLiteAssetHelper {
         db.close();
     }
 
-    /*
-    public List<String> getTicketInfo(int id) {
-        List<String> tempList = new ArrayList<>();
-        Cursor cursor = qb.query(db, sqlSelect, null, null,
-                null, null, null);
-        while (cursor.moveToNext()) {
-            if (id == cursor.getInt(cursor.getColumnIndexOrThrow("ID"))) {
-                tempList.add(cursor.getString(cursor.getColumnIndexOrThrow("Name")));
-                tempList.add(cursor.getString(cursor.getColumnIndexOrThrow("Description")));
-                tempList.add(cursor.getString(cursor.getColumnIndexOrThrow("Age")));
-                tempList.add(cursor.getString(cursor.getColumnIndexOrThrow("Image")));
+
+    public ArrayList<ArrayList<String>> getTicketInfo(String name) {
+        ArrayList<ArrayList<String>> listOLists = new ArrayList<ArrayList<String>>();
+        try {
+            Cursor cursor = this.db.rawQuery("select * from Tickets where Username=" + name, null);
+            while (cursor.moveToNext()) {
+                ArrayList<String> singleList = new ArrayList<String>();
+                singleList.add(cursor.getString(cursor.getColumnIndexOrThrow("FilmID")));
+                singleList.add(cursor.getString(cursor.getColumnIndexOrThrow("Date")));
+                singleList.add(cursor.getString(cursor.getColumnIndexOrThrow("Time")));
+                singleList.add(cursor.getString(cursor.getColumnIndexOrThrow("NumberOfTickets")));
+                singleList.add(cursor.getString(cursor.getColumnIndexOrThrow("Summ")));
+                listOLists.add(singleList);
             }
-        }
-        cursor.close();
-        return tempList;
+            cursor.close();
+        } catch (Exception e){}
+        return listOLists;
     }
-     */
+
 
 
     public Cursor films() {
@@ -182,24 +185,5 @@ public class MyDatabase extends SQLiteAssetHelper {
         context.deleteDatabase("DataStorage.db");
     }
 
-
-    /*
-    public Cursor getEmployees() {
-
-        SQLiteDatabase db = getReadableDatabase();
-        SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
-
-        String [] sqlSelect = {"0 _id", "FirstName", "LastName"};
-        String sqlTables = "Employees";
-
-        qb.setTables(sqlTables);
-        Cursor c = qb.query(db, sqlSelect, null, null,
-                null, null, null);
-
-        c.moveToFirst();
-        return c;
-
-    }
-    */
 
 }

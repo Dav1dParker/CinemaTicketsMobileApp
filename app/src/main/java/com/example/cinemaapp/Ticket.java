@@ -22,7 +22,7 @@ public class Ticket extends AppCompatActivity {
     private MyDatabase DataBaseManager;
     private PosterHandler posterHandler;
     private int id;
-    private String currentDate = null;
+    private String currentDate = "Сегодня";
     private int nubmerOfTickets = 1;
     private TextView counter;
     private TextView summ;
@@ -57,13 +57,13 @@ public class Ticket extends AppCompatActivity {
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month,
                                             int dayOfMonth) {
-                currentDate= dayOfMonth+" " + (month + 1) + year;
+                currentDate = dayOfMonth + "." + (month + 1) + "." + year;
 
             }
         });
     }
-    public void plus(View view)
-    {
+
+    public void plus(View view) {
         nubmerOfTickets += 1;
         counter = findViewById(R.id.ticketCount);
         counter.setText(Integer.toString(nubmerOfTickets));
@@ -71,13 +71,10 @@ public class Ticket extends AppCompatActivity {
         summ.setText(Integer.toString(nubmerOfTickets * 300) + "₽");
     }
 
-    public void minus(View view)
-    {
-        if (nubmerOfTickets == 1)
-        {
+    public void minus(View view) {
+        if (nubmerOfTickets == 1) {
             Toast.makeText(this, "Количество билетов не может быть меньше 1", Toast.LENGTH_SHORT).show();
-        }
-        else {
+        } else {
             nubmerOfTickets -= 1;
             counter = findViewById(R.id.ticketCount);
             counter.setText(Integer.toString(nubmerOfTickets));
@@ -86,8 +83,7 @@ public class Ticket extends AppCompatActivity {
         }
     }
 
-    public void ticketComplete(View view)
-    {
+    public void ticketComplete(View view) {
         DataBaseManager.OpenDBTickets();
         DataBaseManager.insertTicket(id, PosterHandler.UserName, currentDate, time.getText().toString(), nubmerOfTickets, nubmerOfTickets * 300);
         Toast.makeText(this, "Спасибо за покупку!", Toast.LENGTH_LONG).show();

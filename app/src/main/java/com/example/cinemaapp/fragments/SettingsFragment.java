@@ -45,7 +45,10 @@ public class SettingsFragment extends Fragment {
         testButton.setOnClickListener(view1 -> {
             Toast.makeText(getContext(), "Тест запущен",
                     Toast.LENGTH_SHORT).show();
-            System.out.println(PosterHandler.UserName);
+            MyDatabase db = new MyDatabase(getContext());
+            db.OpenDBTickets();
+            System.out.println(db.getTicketInfo("1"));
+            db.close();
         });
 
         return view;
