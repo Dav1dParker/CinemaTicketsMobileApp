@@ -16,6 +16,8 @@ import com.example.cinemaapp.MainActivity;
 import com.example.cinemaapp.R;
 import com.example.cinemaapp.movies.PosterHandler;
 
+import java.util.Objects;
+
 public class SettingsFragment extends Fragment {
     public Button buttonDB;
     public Button testButton;
@@ -32,11 +34,18 @@ public class SettingsFragment extends Fragment {
         buttonDB = view.findViewById(R.id.buttonInSettings);
 
         buttonDB.setOnClickListener(view1 -> {
-            Toast.makeText(getContext(), "Все зарегестрированные пользователи успешно удалены",
-                    Toast.LENGTH_SHORT).show();
-            DataBaseManager.killDB();
-            Intent intent = new Intent(getContext(), MainActivity.class);
-            startActivity(intent);
+            if (Objects.equals(PosterHandler.UserName, "admin")) {
+                Toast.makeText(getContext(), "Все зарегестрированные пользователи успешно удалены",
+                        Toast.LENGTH_SHORT).show();
+                DataBaseManager.killDB();
+                Intent intent = new Intent(getContext(), MainActivity.class);
+                startActivity(intent);
+            }
+            else
+            {
+                Toast.makeText(getContext(), "Этот функционал доступен только администратору",
+                        Toast.LENGTH_SHORT).show();
+            }
         });
 
 
