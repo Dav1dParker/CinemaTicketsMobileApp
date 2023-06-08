@@ -47,7 +47,7 @@ public class SettingsFragment extends Fragment {
                     Toast.LENGTH_SHORT).show();
             MyDatabase db = new MyDatabase(getContext());
             db.OpenDBTickets();
-            System.out.println(db.getTicketInfo("1"));
+            System.out.println(PosterHandler.UserName);
             db.close();
         });
 

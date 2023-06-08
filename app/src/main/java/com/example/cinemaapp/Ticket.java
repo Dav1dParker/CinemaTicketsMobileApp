@@ -87,7 +87,7 @@ public class Ticket extends AppCompatActivity {
         DataBaseManager.OpenDBTickets();
         DataBaseManager.insertTicket(id, PosterHandler.UserName, currentDate, time.getText().toString(), nubmerOfTickets, nubmerOfTickets * 300);
         Toast.makeText(this, "Спасибо за покупку!", Toast.LENGTH_LONG).show();
-        DataBaseManager.close();
+        //DataBaseManager.close();
         Intent intent = new Intent(this, MainScreen.class);
         startActivity(intent);
     }

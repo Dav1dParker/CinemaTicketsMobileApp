@@ -78,7 +78,7 @@ public class MyDatabase extends SQLiteAssetHelper {
     public ArrayList<ArrayList<String>> getTicketInfo(String name) {
         ArrayList<ArrayList<String>> listOLists = new ArrayList<ArrayList<String>>();
         try {
-            Cursor cursor = this.db.rawQuery("select * from Tickets where Username=" + name, null);
+            Cursor cursor = this.db.rawQuery("select * from Tickets where Username = ?", new String[]{name});
             while (cursor.moveToNext()) {
                 ArrayList<String> singleList = new ArrayList<String>();
                 singleList.add(cursor.getString(cursor.getColumnIndexOrThrow("FilmID")));
@@ -108,12 +108,6 @@ public class MyDatabase extends SQLiteAssetHelper {
 
         c.moveToFirst();
 
-        while (c.moveToNext()) {
-
-            System.out.println(c.getString(c.getColumnIndexOrThrow("Name")));
-            //Toast.makeText(context, "I worked", Toast.LENGTH_LONG).show();
-
-        }
         c.close();
         return c;
     }
