@@ -127,7 +127,7 @@
         android:layout_height="64dp"
         android:layout_marginTop="8dp"
         android:onClick="ticketComplete"
-        android:text="КУПИТЬ"
+        android:text="ЗАБРОНИРОВАТЬ"
         android:textColor="@color/DarkText"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
