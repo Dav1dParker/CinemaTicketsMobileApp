@@ -1,5 +1,4 @@
 package com.example.cinemaapp;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -19,19 +18,46 @@ public class Register extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        System.out.println("4");
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
         setContentView(R.layout.activity_register);
         username = findViewById(R.id.Login);
         password = findViewById(R.id.Password);
-        db = new MyDatabase(this);
+        startThread(1);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        db.OpenDBUsers();
+        startThread(2);
+    }
+
+    public void startThread(int task) {
+        multithreading thread = new multithreading();
+        thread.setTask(task);
+        thread.start();
+    }
+
+    class multithreading extends Thread {
+
+        private int task = 0;
+
+        public void setTask(int task) {
+            this.task = task;
+        }
+
+        @Override
+        public void run() {
+            if (task == 1) {
+                db = new MyDatabase(getApplicationContext());
+            }
+            if (task == 2) {
+                db.OpenDBUsers();
+            }
+            if (task == 3) {
+                db.CloseDBUsers();
+            }
+        }
 
     }
 
@@ -45,12 +71,11 @@ public class Register extends AppCompatActivity {
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         }
-
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        db.CloseDBUsers();
+        startThread(3);
     }
 }

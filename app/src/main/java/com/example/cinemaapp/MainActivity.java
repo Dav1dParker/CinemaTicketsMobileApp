@@ -18,6 +18,50 @@ public class MainActivity extends AppCompatActivity {
     EditText username, password;
     private MyDatabase myDatabase;
 
+
+    public void startThread(int task) {
+        multi thread = new multi();
+        thread.setTask(task);
+        thread.start();
+    }
+
+    class multi extends Thread {
+
+        private int task = 0;
+
+        public void setTask(int task) {
+            this.task = task;
+        }
+
+
+        @Override
+        public void run() {
+            if (task == 1) {
+                myDatabase = new MyDatabase(getApplicationContext());
+            }
+            if (task == 2) {
+                myDatabase.OpenDBUsers();
+            }
+            if (task == 3) {
+                if (myDatabase.checkAccount(username.getText().toString(),password.getText().toString()))
+                {
+                    PosterHandler.UserName = username.getText().toString();
+                    Intent intent = new Intent(getApplicationContext(), MainScreen.class);
+                    startActivity(intent);
+                }
+                else {
+                    Toast.makeText(MainActivity.this, "Неверный логин или пароль", Toast.LENGTH_LONG).show();
+                }
+            }
+            if (task == 4)
+            {
+                myDatabase.CloseDBUsers();
+            }
+        }
+    }
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,15 +69,16 @@ public class MainActivity extends AppCompatActivity {
 
         username = findViewById(R.id.Login);
         password = findViewById(R.id.Password);
-        myDatabase = new MyDatabase(this);
+        startThread(1);
     }
+
 
     @Override
     protected void onResume(){
         super.onResume();
         username.getText().clear();
         password.getText().clear();
-        myDatabase.OpenDBUsers();
+        startThread(2);
     }
 
     @Override
@@ -41,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
         super.onRestart();
         username.getText().clear();
         password.getText().clear();
-        myDatabase.OpenDBUsers();
+        startThread(2);
     }
 
     public void onClickToRegister(View view) {
@@ -56,17 +101,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this, "Заполните поле 'Пароль'", Toast.LENGTH_LONG).show();
         } else
         {
-
-            if (myDatabase.checkAccount(username.getText().toString(),password.getText().toString()))
-            {
-                PosterHandler.UserName = username.getText().toString();
-                Intent intent = new Intent(this, MainScreen.class);
-                startActivity(intent);
-            }
-            else {
-                Toast.makeText(MainActivity.this, "Неверный логин или пароль", Toast.LENGTH_LONG).show();
-            }
-
+            startThread(3);
         }
     }
 
@@ -74,11 +109,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        myDatabase.CloseDBUsers();
+        startThread(4);
     }
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        myDatabase.CloseDBUsers();
+        startThread(4);
     }
 }
