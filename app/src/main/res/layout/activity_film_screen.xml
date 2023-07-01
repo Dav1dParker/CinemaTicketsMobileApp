@@ -47,6 +47,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:adjustViewBounds="true"
+                        app:srcCompat="@drawable/poster10"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
@@ -89,7 +90,7 @@
                         android:layout_marginLeft="12dp"
                         android:layout_marginRight="12dp"
                         android:textColor="@color/black"
-                        android:textSize="12sp"
+                        android:textSize="14sp"
                         android:textStyle="bold" />
                 </RelativeLayout>
 
@@ -100,7 +101,7 @@
                     android:layout_gravity="center"
                     android:backgroundTint="@color/secondaryBackground"
                     android:onClick="buyTicket"
-                    android:text="ЗАБРОНИРОВАТЬ"
+                    android:text="@string/toBook"
                     android:textStyle="bold"
                     android:textSize="18sp"
                     android:textColor="@color/black" />
