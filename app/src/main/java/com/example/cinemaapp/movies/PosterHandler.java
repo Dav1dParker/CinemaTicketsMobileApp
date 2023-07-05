@@ -6,8 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PosterHandler {
-    public List<Integer> getPosters()
-    {
+    public List<Integer> getPosters() {
         List<Integer> imageList = new ArrayList<>();
         imageList.add(R.drawable.poster1);
         imageList.add(R.drawable.poster2);

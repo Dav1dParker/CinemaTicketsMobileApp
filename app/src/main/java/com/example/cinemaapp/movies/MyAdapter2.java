@@ -27,12 +27,12 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyViewHolder2> {
 
     @NonNull
     @Override
-    public MyViewHolder2 onCreateViewHolder(@NonNull  ViewGroup parent, int viewType) {
-        return new MyViewHolder2(LayoutInflater.from(context).inflate(R.layout.item2_view,parent,false));
+    public MyViewHolder2 onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return new MyViewHolder2(LayoutInflater.from(context).inflate(R.layout.item2_view, parent, false));
     }
 
     @Override
-    public void onBindViewHolder(@NonNull  MyViewHolder2 holder, @SuppressLint("RecyclerView") int position) {
+    public void onBindViewHolder(@NonNull MyViewHolder2 holder, @SuppressLint("RecyclerView") int position) {
         holder.nameView.setText(items.get(position).getName());
         holder.ageView.setText(items.get(position).getAge());
         holder.imageView.setImageResource(items.get(position).getImage());
@@ -41,7 +41,6 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyViewHolder2> {
         holder.numberOfTicketsView.setText("Кол-во билетов: " + items.get(position).getNumberOfTickets());
         holder.summView.setText("Стоимость: " + items.get(position).getSumm());
     }
-
 
 
     @Override

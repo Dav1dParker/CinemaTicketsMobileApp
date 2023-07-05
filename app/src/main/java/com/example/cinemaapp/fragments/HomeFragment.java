@@ -28,14 +28,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
-
-
-
-
 public class HomeFragment extends Fragment implements SelectListener {
     private com.example.cinemaapp.DataBase.MyDatabase DataBaseManager;
-
 
 
     @SuppressLint("MissingInflatedId")
@@ -51,20 +45,18 @@ public class HomeFragment extends Fragment implements SelectListener {
         List<Integer> imageList = posterHandler.getPosters();
 
 
-
         int len = DataBaseManager.getDatabaseSize();
         String tempName = null;
         String tempDescription = null;
         String tempAge = null;
         int tempImage = 0;
         List<String> tempList = new ArrayList<>();
-        for (int i = 1; i <= len; i++)
-        {
+        for (int i = 1; i <= len; i++) {
             tempList = DataBaseManager.getFilmInfo(i);
             tempName = tempList.get(0);
             tempAge = tempList.get(2);
             tempImage = Integer.parseInt(tempList.get(3));
-            items.add(new Item(tempName, tempAge + "+", imageList.get(tempImage-1), i));
+            items.add(new Item(tempName, tempAge + "+", imageList.get(tempImage - 1), i));
         }
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(new MyAdapter(getContext(), items, this));

@@ -29,14 +29,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
-
-
-
-
 public class AccountFragment extends Fragment implements SelectListener {
     private com.example.cinemaapp.DataBase.MyDatabase DataBaseManager;
-
 
 
     @SuppressLint("MissingInflatedId")
@@ -67,8 +61,7 @@ public class AccountFragment extends Fragment implements SelectListener {
 
         int lenA = listOLists.size();
         DataBaseManager.OpenDBfilms();
-        for (int i = 0; i < lenA; i++)
-        {
+        for (int i = 0; i < lenA; i++) {
             ArrayList<String> onelist = listOLists.get(i);
             mvID = Integer.parseInt(onelist.get(0));
             List<String> filmlist = DataBaseManager.getFilmInfo(mvID);
@@ -79,7 +72,7 @@ public class AccountFragment extends Fragment implements SelectListener {
             tempTime = onelist.get(2);
             tempNumberOfTickets = Integer.parseInt(onelist.get(3));
             tempSumm = onelist.get(4);
-            items.add(new Item2(tempName, tempAge + "+", imageList.get(tempImage-1), mvID, tempDate, tempTime, tempNumberOfTickets, tempSumm));
+            items.add(new Item2(tempName, tempAge + "+", imageList.get(tempImage - 1), mvID, tempDate, tempTime, tempNumberOfTickets, tempSumm));
 
         }
 

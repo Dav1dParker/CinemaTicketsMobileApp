@@ -43,23 +43,19 @@ public class MainActivity extends AppCompatActivity {
                 myDatabase.OpenDBUsers();
             }
             if (task == 3) {
-                if (myDatabase.checkAccount(username.getText().toString(),password.getText().toString()))
-                {
+                if (myDatabase.checkAccount(username.getText().toString(), password.getText().toString())) {
                     PosterHandler.UserName = username.getText().toString();
                     Intent intent = new Intent(getApplicationContext(), MainScreen.class);
                     startActivity(intent);
-                }
-                else {
+                } else {
                     Toast.makeText(MainActivity.this, "Неверный логин или пароль", Toast.LENGTH_LONG).show();
                 }
             }
-            if (task == 4)
-            {
+            if (task == 4) {
                 myDatabase.CloseDBUsers();
             }
         }
     }
-
 
 
     @Override
@@ -74,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     @Override
-    protected void onResume(){
+    protected void onResume() {
         super.onResume();
         username.getText().clear();
         password.getText().clear();
@@ -82,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onRestart(){
+    protected void onRestart() {
         super.onRestart();
         username.getText().clear();
         password.getText().clear();
@@ -99,8 +95,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this, "Заполните поле 'Логин'", Toast.LENGTH_LONG).show();
         } else if (TextUtils.isEmpty(password.getText().toString())) {
             Toast.makeText(MainActivity.this, "Заполните поле 'Пароль'", Toast.LENGTH_LONG).show();
-        } else
-        {
+        } else {
             startThread(3);
         }
     }
@@ -111,6 +106,7 @@ public class MainActivity extends AppCompatActivity {
         super.onPause();
         startThread(4);
     }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();

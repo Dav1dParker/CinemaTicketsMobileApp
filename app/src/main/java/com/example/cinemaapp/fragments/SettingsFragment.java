@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
+
 import com.example.cinemaapp.DataBase.MyDatabase;
 import com.example.cinemaapp.MainActivity;
 import com.example.cinemaapp.R;
@@ -39,9 +40,7 @@ public class SettingsFragment extends Fragment {
                 DataBaseManager.killDB();
                 Intent intent = new Intent(getContext(), MainActivity.class);
                 startActivity(intent);
-            }
-            else
-            {
+            } else {
                 Toast.makeText(getContext(), "Этот функционал доступен только администратору",
                         Toast.LENGTH_SHORT).show();
             }

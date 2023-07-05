@@ -35,7 +35,7 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
 
         final Intent intent;
 
-        intent =  new Intent(context, FilmScreen.class);
+        intent = new Intent(context, FilmScreen.class);
 
         context.startActivity(intent);
     }

@@ -31,7 +31,6 @@ public class MyDatabase extends SQLiteAssetHelper {
     public void OpenDBfilms() {
         db = getReadableDatabase();
         qb = new SQLiteQueryBuilder();
-
         sqlSelect = new String[]{"ID", "Name", "Description", "Age", "Image"};
         sqlTables = "Films";
         qb.setTables(sqlTables);
@@ -82,10 +81,10 @@ public class MyDatabase extends SQLiteAssetHelper {
                 listOLists.add(singleList);
             }
             cursor.close();
-        } catch (Exception e){}
+        } catch (Exception e) {
+        }
         return listOLists;
     }
-
 
 
     public Cursor films() {
@@ -129,8 +128,7 @@ public class MyDatabase extends SQLiteAssetHelper {
         db.insert("CinemaUsers", null, cv);
     }
 
-    public void insertTicket(int filmid, String username, String date, String time, int numberoftickets, int summ)
-    {
+    public void insertTicket(int filmid, String username, String date, String time, int numberoftickets, int summ) {
         ContentValues cv = new ContentValues();
         cv.put("FilmID", filmid);
         cv.put("Username", username);
@@ -158,8 +156,7 @@ public class MyDatabase extends SQLiteAssetHelper {
         return tempList;
     }
 
-    public int getDatabaseSize()
-    {
+    public int getDatabaseSize() {
         Cursor c = qb.query(db, sqlSelect, null, null,
                 null, null, null);
 

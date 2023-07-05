@@ -58,7 +58,7 @@ public class Item2 {
         return NumberOfTickets;
     }
 
-    public void setNumberOfTickets(String  numberOfTickets) {
+    public void setNumberOfTickets(String numberOfTickets) {
         NumberOfTickets = numberOfTickets;
     }
 

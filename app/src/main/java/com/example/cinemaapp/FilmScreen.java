@@ -36,7 +36,7 @@ public class FilmScreen extends AppCompatActivity {
         posterHandler = new PosterHandler();
         List<Integer> imageList = posterHandler.getPosters();
         ImageView poster = (ImageView) findViewById(R.id.buyPoster);
-        poster.setImageResource(imageList.get(id-1));
+        poster.setImageResource(imageList.get(id - 1));
         TextView name = (TextView) findViewById(R.id.buyTitle);
         name.setText(infoList.get(0));
         TextView age = (TextView) findViewById(R.id.buyAge);
@@ -44,8 +44,7 @@ public class FilmScreen extends AppCompatActivity {
         DataBaseManager.close();
     }
 
-    public void buyTicket(View view)
-    {
+    public void buyTicket(View view) {
         Intent intent = new Intent(this, Ticket.class);
         intent.putExtra("id", id);
         startActivity(intent);

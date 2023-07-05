@@ -2,10 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/buyWiget"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/mainBackground"
-    android:id="@+id/buyWiget"
     tools:context=".FilmScreen">
 
     <LinearLayout
@@ -47,8 +47,8 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:adjustViewBounds="true"
-                        app:srcCompat="@drawable/poster10"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/poster10" />
 
                     <TextView
                         android:id="@+id/buyAge"
@@ -56,9 +56,9 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="end"
                         android:layout_marginBottom="16dp"
+                        android:background="@color/mainBackground"
                         android:text="12+"
                         android:textColor="@color/secondaryBackground"
-                        android:background="@color/mainBackground"
                         android:textSize="30sp"
                         app:layout_constraintBottom_toBottomOf="@+id/buyPoster"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -71,13 +71,13 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:layout_height="fill_parent"
-                        android:layout_width="fill_parent"
                         android:id="@+id/buyDescriptionBackground"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignBottom="@+id/buyDescription"
-                        android:layout_alignParentEnd="true"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
                         android:layout_alignTop="@+id/buyDescription"
+                        android:layout_alignBottom="@+id/buyDescription"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentEnd="true"
                         android:foregroundGravity="center"
                         app:srcCompat="@drawable/rounded_corner" />
 
@@ -85,10 +85,10 @@
                         android:id="@+id/buyDescription"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:justificationMode="inter_word"
-                        android:text="empty\n\n\n\n\n\n"
                         android:layout_marginLeft="12dp"
                         android:layout_marginRight="12dp"
+                        android:justificationMode="inter_word"
+                        android:text="empty\n\n\n\n\n\n"
                         android:textColor="@color/black"
                         android:textSize="14sp"
                         android:textStyle="bold" />
@@ -102,9 +102,9 @@
                     android:backgroundTint="@color/secondaryBackground"
                     android:onClick="buyTicket"
                     android:text="@string/toBook"
-                    android:textStyle="bold"
+                    android:textColor="@color/black"
                     android:textSize="18sp"
-                    android:textColor="@color/black" />
+                    android:textStyle="bold" />
 
             </LinearLayout>
         </ScrollView>
