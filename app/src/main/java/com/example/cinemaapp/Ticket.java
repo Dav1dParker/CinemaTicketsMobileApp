@@ -14,7 +14,6 @@ import com.example.cinemaapp.DataBase.MyDatabase;
 import com.example.cinemaapp.movies.PosterHandler;
 
 import java.util.ArrayList;
-import java.util.GregorianCalendar;
 import java.util.List;
 
 public class Ticket extends AppCompatActivity {

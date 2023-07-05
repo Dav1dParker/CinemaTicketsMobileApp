@@ -28,7 +28,6 @@ public class SettingsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         DataBaseManager = new MyDatabase(getContext());
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_settings, container, false);
 
         buttonDB = view.findViewById(R.id.buttonInSettings);
@@ -52,12 +51,6 @@ public class SettingsFragment extends Fragment {
         testButton = view.findViewById(R.id.testButton);
 
         testButton.setOnClickListener(view1 -> {
-            Toast.makeText(getContext(), "Тест запущен",
-                    Toast.LENGTH_SHORT).show();
-            MyDatabase db = new MyDatabase(getContext());
-            db.OpenDBTickets();
-            System.out.println(PosterHandler.UserName);
-            db.close();
         });
 
         return view;

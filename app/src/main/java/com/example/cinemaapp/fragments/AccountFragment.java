@@ -13,19 +13,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 
 import com.example.cinemaapp.DataBase.MyDatabase;
 
 import com.example.cinemaapp.FilmScreen;
-import com.example.cinemaapp.MainActivity;
 import com.example.cinemaapp.R;
 import com.example.cinemaapp.movies.Item;
 import com.example.cinemaapp.movies.Item2;
-import com.example.cinemaapp.movies.MyAdapter;
 import com.example.cinemaapp.movies.MyAdapter2;
-import com.example.cinemaapp.movies.MyViewHolder;
 import com.example.cinemaapp.movies.PosterHandler;
 import com.example.cinemaapp.movies.SelectListener;
 

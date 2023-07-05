@@ -8,7 +8,6 @@ import android.database.sqlite.SQLiteQueryBuilder;
 
 import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,12 +18,6 @@ public class MyDatabase extends SQLiteAssetHelper {
 
     public MyDatabase(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
-
-        // you can use an alternate constructor to specify a database location
-        // (such as a folder on the sd card)
-        // you must ensure that this folder is available and you have permission
-        // to write to it
-        //super(context, DATABASE_NAME, context.getExternalFilesDir(null).getAbsolutePath(), null, DATABASE_VERSION);
 
     }
 
@@ -120,7 +113,6 @@ public class MyDatabase extends SQLiteAssetHelper {
         while (cursor.moveToNext()) {
             if (cursor.getString(cursor.getColumnIndexOrThrow("logins")).equals(tLogin) &&
                     cursor.getString(cursor.getColumnIndexOrThrow("passwords")).equals(tPassword)) {
-                //Toast.makeText(context, "I worked", Toast.LENGTH_LONG).show();
                 flag = true;
                 break;
             }

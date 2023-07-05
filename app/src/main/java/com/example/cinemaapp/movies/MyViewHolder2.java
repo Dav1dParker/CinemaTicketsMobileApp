@@ -1,17 +1,14 @@
 package com.example.cinemaapp.movies;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.cinemaapp.FilmScreen;
 import com.example.cinemaapp.R;
 
 public class MyViewHolder2 extends RecyclerView.ViewHolder {
