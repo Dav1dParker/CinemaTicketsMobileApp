@@ -56,7 +56,7 @@ public class Ticket extends AppCompatActivity {
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month,
                                             int dayOfMonth) {
-                currentDate = dayOfMonth + "." + (month + 1) + "." + year;
+                currentDate = dayOfMonth + "." + (month + 1) + "" + year;
 
             }
         });
