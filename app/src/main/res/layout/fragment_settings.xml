@@ -12,7 +12,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Следующие опции предназначены исключительно для разработчика!"
+        android:text="@string/AdminSettings"
         android:textColor="@color/red"
         android:textSize="11sp"
         android:textStyle="bold"
@@ -29,7 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
         android:onClick="onClickDestroyDB"
-        android:text="Очистить базу данных"
+        android:text="@string/DBclear"
         android:textColor="@color/black"
         android:textStyle="bold"
         android:theme="@style/Button.Grey"
@@ -45,10 +45,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="startTest"
-        android:text="Button"
+        android:text="@string/Blank"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/ChangeLanguageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.154"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.094"
+        app:srcCompat="@drawable/changelanguageicon" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">CinemaApp</string>
+    <string name="open_nav">Open Navigation Drawer</string>
+    <string name="close_nav">Close Navigation Drawer</string>
+    <string name="version">App version: 1.33</string>
+    <string name="toBook">BOOK</string>
+    <string name="Blank">Blank</string>
+    <string name="Login">Login</string>
+    <string name="Password">Password</string>
+    <string name="Enter">Enter</string>
+    <string name="Register">Register</string>
+    <string name="TicketChoose">Ticket choose</string>
+    <string name="AmountOfTickets">Amount of tickets:</string>
+    <string name="StockTime">12:00</string>
+    <string name="Time">Time:</string>
+    <string name="Title">Title</string>
+    <string name="Total">Total:</string>
+    <string name="StockPrice">300$</string>
+    <string name="PlusSign">+</string>
+    <string name="MinusSign">-</string>
+    <string name="StockNumber">1</string>
+    <string name="AboutApp">About this app:</string>
+    <string name="YourTickets">Your tickets:</string>
+    <string name="TodayInCinema">Today in cinema</string>
+    <string name="AdminSettings">Next options are meant to use only by a developer</string>
+    <string name="DBclear">Clear database</string>
+    <string name="gitLink"><a href="https://github.com/Dav1dParker">https://github.com/Dav1dParker</a></string>
+</resources>

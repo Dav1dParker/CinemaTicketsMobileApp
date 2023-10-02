@@ -1,22 +1,17 @@
 package com.example.cinemaapp.fragments;
 
 import android.annotation.SuppressLint;
-
 import android.content.Intent;
 import android.os.Bundle;
-
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
-
 import com.example.cinemaapp.DataBase.MyDatabase;
-
 import com.example.cinemaapp.FilmScreen;
 import com.example.cinemaapp.R;
 import com.example.cinemaapp.movies.Item;

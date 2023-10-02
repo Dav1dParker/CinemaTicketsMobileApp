@@ -14,11 +14,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:text="Сегодня в кино"
+        android:text="@string/TodayInCinema"
         android:textColor="@color/black"
         android:textSize="30sp"
         android:textStyle="bold" />
-
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview"

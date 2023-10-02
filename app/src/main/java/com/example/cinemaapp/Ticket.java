@@ -1,7 +1,5 @@
 package com.example.cinemaapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +7,8 @@ import android.widget.CalendarView;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.cinemaapp.DataBase.MyDatabase;
 import com.example.cinemaapp.movies.PosterHandler;

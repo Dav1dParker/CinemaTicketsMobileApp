@@ -3,14 +3,13 @@ package com.example.cinemaapp.fragments;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
+
+import androidx.fragment.app.Fragment;
 
 import com.example.cinemaapp.DataBase.MyDatabase;
 import com.example.cinemaapp.MainActivity;
@@ -22,6 +21,8 @@ import java.util.Objects;
 public class SettingsFragment extends Fragment {
     public Button buttonDB;
     public Button testButton;
+
+    public Button LanguageButton;
     private com.example.cinemaapp.DataBase.MyDatabase DataBaseManager;
 
     @SuppressLint("MissingInflatedId")
@@ -45,6 +46,26 @@ public class SettingsFragment extends Fragment {
                         Toast.LENGTH_SHORT).show();
             }
         });
+
+
+        /*
+        LanguageButton = view.findViewById(R.id.ChangeLanguageButton);
+        //Button to change language of the app
+        //TODO: Change language of the app
+        LanguageButton.setOnClickListener(view1 -> {
+            if (Objects.equals(PosterHandler.Language, "ru")) {
+                PosterHandler.Language = "en";
+                Toast.makeText(getContext(), "Language changed to English",
+                        Toast.LENGTH_SHORT).show();
+            } else {
+                PosterHandler.Language = "ru";
+                Toast.makeText(getContext(), "Язык изменен на русский",
+                        Toast.LENGTH_SHORT).show();
+            }
+            Intent intent = new Intent(getContext(), MainActivity.class);
+            startActivity(intent);
+        });
+         */
 
 
         testButton = view.findViewById(R.id.testButton);
