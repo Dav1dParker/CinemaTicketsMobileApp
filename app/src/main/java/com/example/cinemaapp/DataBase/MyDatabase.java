@@ -36,10 +36,6 @@ public class MyDatabase extends SQLiteAssetHelper {
         qb.setTables(sqlTables);
     }
 
-    public void CloseDBfilms() {
-        db.close();
-    }
-
     public void OpenDBUsers() {
         db = getReadableDatabase();
         qb = new SQLiteQueryBuilder();
@@ -62,9 +58,11 @@ public class MyDatabase extends SQLiteAssetHelper {
         qb.setTables(sqlTables);
     }
 
+    /*
     public void CloseDBTickets() {
         db.close();
     }
+    */
 
 
     public ArrayList<ArrayList<String>> getTicketInfo(String name) {
@@ -82,11 +80,13 @@ public class MyDatabase extends SQLiteAssetHelper {
             }
             cursor.close();
         } catch (Exception e) {
+            throw new RuntimeException(e);
         }
         return listOLists;
     }
 
 
+    /*
     public Cursor films() {
         SQLiteDatabase db = getReadableDatabase();
         SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
@@ -103,6 +103,7 @@ public class MyDatabase extends SQLiteAssetHelper {
         c.close();
         return c;
     }
+     */
 
     public boolean checkAccount(String tLogin, String tPassword) {
         boolean flag = false;

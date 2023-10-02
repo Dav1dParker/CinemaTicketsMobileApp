@@ -36,7 +36,7 @@ public class SettingsFragment extends Fragment {
 
         buttonDB.setOnClickListener(view1 -> {
             if (Objects.equals(PosterHandler.UserName, "admin")) {
-                Toast.makeText(getContext(), "Все зарегестрированные пользователи успешно удалены",
+                Toast.makeText(getContext(), "Все зарегистрированные пользователи успешно удалены",
                         Toast.LENGTH_SHORT).show();
                 DataBaseManager.killDB();
                 Intent intent = new Intent(getContext(), MainActivity.class);
