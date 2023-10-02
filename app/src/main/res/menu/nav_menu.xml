@@ -7,21 +7,21 @@
         <item
             android:id="@+id/nav_account"
             android:icon="@drawable/nav_account"
-            android:title="Профиль" />
+            android:title="@string/Profile" />
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/nav_home"
-            android:title="На главную" />
+            android:title="@string/ToMain" />
 
         <item
             android:id="@+id/nav_settings"
             android:icon="@drawable/nav_settings"
-            android:title="Настройки" />
+            android:title="@string/Settings" />
 
         <item
             android:id="@+id/nav_about"
             android:icon="@drawable/nav_about"
-            android:title="О приложении" />
+            android:title="@string/AboutAppMain" />
     </group>
 
     <item android:title="">
@@ -29,11 +29,11 @@
             <item
                 android:id="@+id/nav_logout"
                 android:icon="@drawable/nav_logout"
-                android:title="Выйти из аккаунта" />
+                android:title="@string/Logout" />
             <item
                 android:id="@+id/nav_exit"
                 android:icon="@drawable/nav_logout"
-                android:title="Выйти из приложения" />
+                android:title="@string/Exit" />
 
 
         </menu>

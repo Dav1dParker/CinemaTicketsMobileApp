@@ -12,10 +12,12 @@ import android.widget.Toast;
 import androidx.fragment.app.Fragment;
 
 import com.example.cinemaapp.DataBase.MyDatabase;
+import com.example.cinemaapp.LocaleHelper;
 import com.example.cinemaapp.MainActivity;
 import com.example.cinemaapp.R;
 import com.example.cinemaapp.movies.PosterHandler;
 
+import java.util.Locale;
 import java.util.Objects;
 
 public class SettingsFragment extends Fragment {
@@ -48,24 +50,26 @@ public class SettingsFragment extends Fragment {
         });
 
 
-        /*
+
         LanguageButton = view.findViewById(R.id.ChangeLanguageButton);
+
         //Button to change language of the app
         //TODO: Change language of the app
         LanguageButton.setOnClickListener(view1 -> {
-            if (Objects.equals(PosterHandler.Language, "ru")) {
-                PosterHandler.Language = "en";
+            if (Objects.equals(getResources().getConfiguration().getLocales().get(0), Locale.forLanguageTag("ru"))) {
+                LocaleHelper.setLocale(getContext(),"en");
                 Toast.makeText(getContext(), "Language changed to English",
                         Toast.LENGTH_SHORT).show();
             } else {
-                PosterHandler.Language = "ru";
+                LocaleHelper.setLocale(getContext(),"ru");
                 Toast.makeText(getContext(), "Язык изменен на русский",
                         Toast.LENGTH_SHORT).show();
             }
             Intent intent = new Intent(getContext(), MainActivity.class);
             startActivity(intent);
         });
-         */
+
+
 
 
         testButton = view.findViewById(R.id.testButton);

@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
                     Intent intent = new Intent(getApplicationContext(), MainScreen.class);
                     startActivity(intent);
                 } else {
+                    //TODO: move to strings.xml
                     Toast.makeText(MainActivity.this, "Неверный логин или пароль", Toast.LENGTH_LONG).show();
                 }
             }

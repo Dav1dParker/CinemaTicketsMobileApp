@@ -24,5 +24,12 @@
     <string name="TodayInCinema">Today in cinema</string>
     <string name="AdminSettings">Next options are meant to use only by a developer</string>
     <string name="DBclear">Clear database</string>
+    <string name="ChangeLanguage">Change language</string>
+    <string name="AboutAppMain">About</string>
+    <string name="Profile">Profile</string>
+    <string name="ToMain">Home</string>
+    <string name="Settings">Settings</string>
+    <string name="Logout">Logout</string>
+    <string name="Exit">Exit</string>
     <string name="gitLink"><a href="https://github.com/Dav1dParker">https://github.com/Dav1dParker</a></string>
 </resources>

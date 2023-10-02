@@ -31,6 +31,7 @@ public class MyAdapter2 extends RecyclerView.Adapter<MyViewHolder2> {
         return new MyViewHolder2(LayoutInflater.from(context).inflate(R.layout.item2_view, parent, false));
     }
 
+    //TODO: move all strings to strings.xml
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder2 holder, @SuppressLint("RecyclerView") int position) {
         holder.nameView.setText(items.get(position).getName());

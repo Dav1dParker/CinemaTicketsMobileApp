@@ -30,7 +30,6 @@ public class MyViewHolder extends RecyclerView.ViewHolder {
         relativeLayout = itemView.findViewById(R.id.main_container);
     }
 
-    //@Override
     public void onClick(View v) {
 
         final Intent intent;

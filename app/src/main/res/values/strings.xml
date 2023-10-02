@@ -2,7 +2,7 @@
     <string name="app_name">Кинотеатр</string>
     <string name="open_nav">Open Navigation Drawer</string>
     <string name="close_nav">Close Navigation Drawer</string>
-    <string name="version">Версия приложения: 1.326</string>
+    <string name="version">Версия приложения: 1.33</string>
     <string name="toBook">ЗАБРОНИРОВАТЬ</string>
     <string name="Blank">Blank</string>
 
@@ -25,5 +25,12 @@
     <string name="TodayInCinema">Сегодня в кино</string>
     <string name="AdminSettings">Следующие опции предназначены исключительно для разработчика!</string>
     <string name="DBclear">Очистить базу данных</string>
+    <string name="ChangeLanguage">Сменить язык</string>
+    <string name="AboutAppMain">О приложении</string>
+    <string name="Profile">Профиль</string>
+    <string name="ToMain">На главную</string>
+    <string name="Settings">Настройки</string>
+    <string name="Logout">Выйти из аккаунта</string>
+    <string name="Exit">Выйти из приложения</string>
     <string name="gitLink"><a href="https://github.com/Dav1dParker">https://github.com/Dav1dParker</a></string>
 </resources>
